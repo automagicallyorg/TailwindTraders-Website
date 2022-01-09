@@ -85,19 +85,13 @@ jobs:
         tags: ${{ secrets.DOCKER_LOGIN_SERVER }}/tailwindtraders-ado40:${{ github.sha }}
         context: ./TailwindTraders.Website/Source/Tailwind.Traders.Web/
 
-    - run: |
-      docker build -t ${{ secrets.DOCKER_LOGIN_SERVER }}/tailwindtraders-ado40:${{ github.sha }}
-
+    # Enabling CI/CD Scanning
     - uses: Azure/container-scan@v0 
       name: Scan image for vulnerabilities
       id: container-scan
       continue-on-error: true
       with:
         image-name: ${{ secrets.DOCKER_LOGIN_SERVER }}/tailwindtraders-ado40:${{ github.sha }} 
-
-    - name: Push Docker image - ${{ secrets.DOCKER_LOGIN_SERVER }}/tailwindtraders-ado40:${{ github.sha }}
-      run: |
-      docker push ${{ secrets.DOCKER_LOGIN_SERVER }}/tailwindtraders-ado40:${{ github.sha }}
 
     - name: Post logs to appinsights
       uses: Azure/publish-security-assessments@v0
