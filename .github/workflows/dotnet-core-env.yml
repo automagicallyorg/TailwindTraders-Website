@@ -93,12 +93,13 @@ jobs:
       with:
         image-name: ${{ secrets.DOCKER_LOGIN_SERVER }}/tailwindtraders-ado40:${{ github.sha }} 
 
+    # Post Logs to AppInsights
     - name: Post logs to appinsights
       uses: Azure/publish-security-assessments@v0
       with: 
         scan-results-path: ${{ steps.container-scan.outputs.scan-report-path }}
         connection-string: ${{ secrets.AZ_APPINSIGHTS_CONNECTION_STRING }}
-        subscription-token: ${{ secrets.AZURE_SUBSCRIPTION }} 
+        subscription-token: ${{ secrets.AZ_SUBSCRIPTION_TOKEN }} 
    
   deploy_test:
         
