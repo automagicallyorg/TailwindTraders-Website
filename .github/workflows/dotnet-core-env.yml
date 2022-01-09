@@ -98,7 +98,7 @@ jobs:
       with: 
         scan-results-path: ${{ steps.container-scan.outputs.scan-report-path }}
         connection-string: ${{ secrets.AZ_APPINSIGHTS_CONNECTION_STRING }}
-        subscription-token: ${{ secrets.AZ_SUBSCRIPTION_TOKEN }} 
+        subscription-token: ${{ secrets.AZURE_SUBSCRIPTION }} 
    
   deploy_test:
         
