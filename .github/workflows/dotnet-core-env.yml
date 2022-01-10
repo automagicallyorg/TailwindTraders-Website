@@ -18,6 +18,8 @@ env:
   # Declaring the version of Node to be used
   NODE_VERSION: 10.x
 
+  # Build and Test Code 
+  # TODO: Make more concise
 jobs:
   buildTest:
     name: Build and Test Code
@@ -68,7 +70,7 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     
-    # authenticate into Docker
+    # Authenticate into Docker
     - name: "docker login"
       uses: azure/docker-login@v1
       with:
