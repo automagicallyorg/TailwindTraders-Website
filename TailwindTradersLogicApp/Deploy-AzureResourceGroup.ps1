@@ -29,6 +29,7 @@ function Format-ValidationOutput {
 $OptionalParameters = New-Object -TypeName Hashtable
 $TemplateFile = [System.IO.Path]::GetFullPath([System.IO.Path]::Combine($PSScriptRoot, $TemplateFile))
 $TemplateParametersFile = [System.IO.Path]::GetFullPath([System.IO.Path]::Combine($PSScriptRoot, $TemplateParametersFile))
+$MToken = "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" # DO NOT MERGE. JUST TESTING
 
 if ($UploadArtifacts) {
     # Convert relative paths to absolute paths if needed
